@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-[Raleway];
+  }
+  li {
+    @apply px-4;
+    @apply cursor-pointer;
+  }
+}
+
+.content-div {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+}
+
+.content-div:hover {
+  background-image: linear-gradient(to right, #141e30, #243b55) !important;
+}
+
+.work-btn {
+  margin: 2px;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -0.8px;
+  line-height: 24px;
+  min-width: 100px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.work-btn:focus {
+  color: #171e29;
+}
+
+.work-btn:hover {
+  background-color: #fefe00;
+  border-color: #fefe00;
+  color: black;
+  fill: #fefe00;
+}
+
+.work-btn:active {
+  border-color: #fefe00;
+  color: #fefe00;
+  fill: #fefe00;
+}
+
+.submit-btn {
+  align-items: center;
+  background-color: transparent;
+  /* border:  */
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  min-width: 100px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.submit-btn:focus {
+  color: #171e29;
+}
+
+.submit-btn:hover {
+  background-color: #fefe00;
+  border-color: #fefe00;
+  color: black;
+  fill: #fefe00;
+}
+
+.submit-btn:active {
+  border-color: #fefe00;
+  color: #fefe00;
+  fill: #fefe00;
+}
+
+@media (min-width: 768px) {
+  .work-btn {
+    min-width: 110px;
+  }
+}
