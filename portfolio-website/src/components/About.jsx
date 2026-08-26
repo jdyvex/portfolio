@@ -1,34 +1,42 @@
-import React from "react";
-import Lottie from "lottie-react";
-import animationData from "../assets/developerAnimation.json";
+import { motion as Motion } from "framer-motion";
+import InteractiveMesh from "./InteractiveMesh";
+
+const principles = [
+  { number: "01", title: "Start with the problem", copy: "Define the audience, goal, and constraints." },
+  { number: "02", title: "Build for change", copy: "Use clear patterns that support change." },
+  { number: "03", title: "Finish with care", copy: "Validate across screens and refine the details." },
+];
 
 const About = () => {
   return (
-    <div name="about" className="w-full h-screen text-fontWhite">
-      <div className="flex flex-col justify-center items-center w-full h-full">
-        <p className="text-4xl text-center pt-12 text-font font-bold inline border-b-4 border-accentYellow">
-          About
-        </p>
-        <div className="max-w-[1000px] w-full grid px-6 py-4 sm:py-8 sm:grid-cols-2">
-          <div className="invisible max-w-0 sm:visible sm:max-w-full sm:ml-[-40px]">
-            <Lottie animationData={animationData} />
+    <section id="about" className="content-section about-section" aria-labelledby="about-title">
+      <InteractiveMesh />
+      <div className="page-shell">
+      <Motion.div className="section-heading" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.55 }}>
+        <span className="section-index">01 / About</span>
+        <h2 id="about-title">I bring design and development together.</h2>
+      </Motion.div>
+
+      <div className="about-grid">
+        <Motion.div className="about-statement" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55, delay: 0.08 }}>
+          <p>I build responsive digital products with equal attention to interface design, implementation, and long-term maintainability.</p>
+          <div className="about-interaction-cue" aria-hidden="true">
+            <span><i /><i /><i /></span>
+            Interactive field — move or tap to disturb
           </div>
-          <div className="tracking-wide">
-            <p className="text-2xl sm:text-4xl md:mt-[35px] lg:mt-[75px] text-center font-bold py-6">
-              Builder of web stuff.
-            </p>
-            <p className="bg-bgBlack p-4 rounded-xl bg-opacity-85 border border-btnGray">
-              Hey there, my name's Jordan! I specialize in bringing{" "}
-              <i>responsive, </i>
-              <span className="text-accentYellow">easy to navigate</span> web
-              pages to life and I'm always looking for ways to optimize my work.
-              I'm perpetually curious and love the creative process behind each
-              design.
-            </p>
-          </div>
+        </Motion.div>
+
+        <div className="principles-list" aria-label="Working principles">
+          {principles.map((principle, index) => (
+            <Motion.article key={principle.number} initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.45, delay: index * 0.07 }}>
+              <span>{principle.number}</span>
+              <div><h3>{principle.title}</h3><p>{principle.copy}</p></div>
+            </Motion.article>
+          ))}
         </div>
       </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

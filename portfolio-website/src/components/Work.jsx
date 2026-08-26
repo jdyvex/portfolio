@@ -1,110 +1,45 @@
-import React from "react";
-import Gericht from "../assets/projects/Gericht.png";
-import GPT from "../assets/projects/GPT3.png";
-import Summize from "../assets/projects/Summize.png";
+import { motion as Motion } from "framer-motion";
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
+import Gericht from "../assets/projects/Gericht.webp";
+import GPT from "../assets/projects/GPT3.webp";
+import Summize from "../assets/projects/Summize.webp";
 
-const Work = () => {
-  return (
-    <div
-      name="work"
-      className="w-full h-auto sm:h-screen pt-20 sm:pt-0 text-fontGray"
-    >
-      <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
-        <div className="text-center">
-          <p className="text-4xl font-bold inline border-b-4 text-fontWhite border-accentYellow">
-            Work
-          </p>
-          <p className="pt-6">Check out some of my recent projects!</p>
-        </div>
-        {/* Container */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-16">
-          {/* Grid Item */}
-          <div
-            style={{ backgroundImage: `url(${Gericht})` }}
-            className="shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div"
-          >
-            {/* Hover Effect */}
-            <div className="opacity-0 group-hover:opacity-100">
-              <div className="text-2xl text-center font-bold text-white uppercase tracking-wider p-4">
-                Gericht <br /> Landing Page
-              </div>
-              <div className="pt-8 text-center">
-                <a
-                  href="https://jdyvex.github.io/gericht-landing-page/"
-                  target="_blank"
-                >
-                  <button className="work-btn">Demo</button>
-                </a>
-                <a
-                  href="https://github.com/jdyvex/gericht-landing-page"
-                  target="_blank"
-                >
-                  <button className="work-btn">Code</button>
-                </a>
+const projects = [
+  { number: "01", title: "Gericht", category: "Hospitality landing page", description: "A responsive restaurant landing page with an editorial layout, menu highlights, and smooth navigation across screen sizes.", skills: ["React", "Responsive UI", "Visual development"], image: Gericht, imageAlt: "Gericht restaurant landing page interface", demo: "https://jdyvex.github.io/gericht-landing-page/", code: "https://github.com/jdyvex/gericht-landing-page" },
+  { number: "02", title: "GPT-3", category: "Technology landing page", description: "A responsive marketing site that breaks technical content into clear sections and reusable React components.", skills: ["React", "Component design", "Responsive UI"], image: GPT, imageAlt: "GPT-3 technology landing page interface", demo: "https://jdyvex.github.io/gpt3-landing-page/", code: "https://github.com/jdyvex/gpt3-landing-page" },
+  { number: "03", title: "Summize", category: "AI-powered web application", description: "A web app that uses an API to turn long articles into short summaries through a simple, focused interface.", skills: ["React", "API integration", "Product UI"], image: Summize, imageAlt: "Summize article summarizer application interface", demo: "https://summize-ai-summarizer.netlify.app/", code: "https://github.com/jdyvex/ai-summarizer" },
+];
+
+const Work = () => (
+  <section id="work" className="content-section work-section" aria-labelledby="work-title">
+    <div className="page-shell">
+      <Motion.div className="section-heading section-heading-split" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.55 }}>
+        <div className="section-title-frame"><span className="section-index">03 / Selected work</span><h2 id="work-title">From responsive websites to complete web applications.</h2></div>
+        <p className="section-summary-frame">A mix of marketing sites and web apps, each built to be clear, responsive, and easy to use.</p>
+      </Motion.div>
+      <div className="project-list">
+        {projects.map((project, index) => (
+          <Motion.article className="project-card" key={project.title} initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.58, delay: index * 0.06 }}>
+            <a className="project-visual" href={project.demo} target="_blank" rel="noreferrer" aria-label={"View " + project.title + " live project"}>
+              <img src={project.image} alt={project.imageAlt} loading="lazy" />
+              <span className="project-visual-action">View live <FiArrowUpRight aria-hidden="true" /></span>
+            </a>
+            <div className="project-details">
+              <div className="project-number">Project / {project.number}</div>
+              <p className="project-category">{project.category}</p>
+              <h3>{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <ul aria-label={project.title + " technologies"}>{project.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
+              <div className="project-links">
+                <a href={project.demo} target="_blank" rel="noreferrer">Live project <FiArrowUpRight aria-hidden="true" /></a>
+                <a href={project.code} target="_blank" rel="noreferrer">Source code <FiGithub aria-hidden="true" /></a>
               </div>
             </div>
-          </div>
-          {/* Grid Item 2 */}
-          <div
-            style={{ backgroundImage: `url(${GPT})` }}
-            className="shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div"
-          >
-            {/* Hover Effect */}
-            <div className="opacity-0 group-hover:opacity-100">
-              <div className="text-2xl text-center font-bold text-white uppercase tracking-wider p-4">
-                GPT-3 <br /> Landing Page
-              </div>
-              <div className="pt-8 text-center">
-                <a
-                  href="https://jdyvex.github.io/gpt3-landing-page/"
-                  target="_blank"
-                >
-                  <button className="work-btn">Demo</button>
-                </a>
-                <a
-                  href="https://github.com/jdyvex/gpt3-landing-page"
-                  target="_blank"
-                >
-                  <button className="work-btn">Code</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          {/* Grid Item 3 */}
-          <div
-            style={{ backgroundImage: `url(${Summize})` }}
-            className="shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div"
-          >
-            {/* Hover Effect */}
-            <div className="opacity-0 group-hover:opacity-100">
-              <div className="text-2xl text-center font-bold text-white uppercase tracking-wider p-4">
-                Article Summarizer
-              </div>
-              <div className="pt-8 text-center">
-                <a
-                  href="https://summize-ai-summarizer.netlify.app/"
-                  target="_blank"
-                >
-                  <button className="work-btn">Demo</button>
-                </a>
-                <a
-                  href="https://github.com/jdyvex/ai-summarizer"
-                  target="_blank"
-                >
-                  <button className="work-btn">Code</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p className="text-fontGray inline text-center pb-8">
-          ... and hey, there's always room for more! Let's collaborate on new
-          exciting projects together. Feel free to share your ideas and let's
-          create something amazing!
-        </p>
+          </Motion.article>
+        ))}
       </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default Work;

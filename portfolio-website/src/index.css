@@ -6,8 +6,15 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    background: #0d0f12;
+  }
   body {
     @apply font-[Raleway];
+    margin: 0;
+    min-width: 320px;
+    background: #0d0f12;
   }
   li {
     @apply px-4;

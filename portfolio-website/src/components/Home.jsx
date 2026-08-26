@@ -1,44 +1,86 @@
-import React from "react";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { motion as m } from "framer-motion";
-import { Link } from "react-scroll";
+import { motion as Motion } from "framer-motion";
+import { FiArrowDownRight, FiArrowUpRight, FiCheck } from "react-icons/fi";
+
+const expertise = [
+  "Responsive interfaces",
+  "React architecture",
+  "Design-minded development",
+];
 
 const Home = () => {
   return (
-    <div name="home" className="w-full h-screen bg-bgBlack">
-      {/* container  */}
-      <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
-        <p className="text-accentYellow text-sm font-semibold sm:text-lg">
-          Hi, my name is
-        </p>
-        <h1 className="font-ffHead text-5xl font-bold text-fontWhite tracking-[1.5px] uppercase sm:text-7xl">
-          Jordan Dyvex
-        </h1>
-        <h2 className="text-2xl font-bold text-fontGray sm:text-4xl">
-          I am a{" "}
-          <span className="text-btnYellow text-opacity-90">Front-End</span> Web
-          Developer.
-        </h2>
-        <p className="text-fontLightGray text-sm py-4 max-w-[700px] sm:text-base">
-          Hey there! My name is Jordan. I am a self-taught Front-End Developer,
-          passionate about creating responsive & stylish pages for the web.
-        </p>
-        <div>
-          <Link to="work" smooth={true} duration={500} offset={-80}>
-            <m.button
-              className="text-fontWhite group border-2 px-6 py-3 my-2 flex items-center hover:bg-btnYellow hover:border-btnYellow hover:text-black"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Work
-              <span className="group-hover:rotate-90 group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">
-                <HiArrowNarrowRight className="ml-3" />
-              </span>
-            </m.button>
-          </Link>
-        </div>
+    <section id="home" className="hero-section" aria-labelledby="hero-title">
+      <div className="hero-glow" aria-hidden="true" />
+      <div className="hero-grid" aria-hidden="true" />
+
+      <div className="page-shell hero-layout">
+        <Motion.div
+          className="hero-copy"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="availability-pill">
+            <span className="availability-dot" aria-hidden="true" />
+            Open to roles &amp; select projects
+          </div>
+
+          <p className="hero-kicker">Developer · Creative technologist</p>
+          <h1 id="hero-title">
+            Builder of
+            <span> digital products.</span>
+          </h1>
+          <p className="hero-intro">
+            I’m Jordan. I build websites and web apps that are clear,
+            responsive, and pleasant to use. I care about the small details,
+            but I keep the code practical.
+          </p>
+
+          <div className="hero-actions">
+            <a className="button button-primary" href="#work">
+              Explore selected work
+              <FiArrowDownRight aria-hidden="true" />
+            </a>
+            <a className="button button-secondary" href="mailto:jordan@jordandyvex.com">
+              Start a conversation
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </div>
+        </Motion.div>
+
+        <Motion.aside
+          className="expertise-card"
+          aria-label="Core expertise"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="expertise-card-topline">
+            <span>Core expertise</span>
+            <span>01—03</span>
+          </div>
+          <div className="expertise-monogram" aria-hidden="true">
+            JD
+          </div>
+          <ul>
+            {expertise.map((item) => (
+              <li key={item}>
+                <FiCheck aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p>
+            I’m available to work with product teams, agencies, and founders.
+          </p>
+        </Motion.aside>
       </div>
-    </div>
+
+      <a className="scroll-cue" href="#about">
+        <span>Continue</span>
+        <FiArrowDownRight aria-hidden="true" />
+      </a>
+    </section>
   );
 };
 
